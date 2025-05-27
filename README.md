@@ -2,6 +2,8 @@
 
 [Deep Neural Networks (DNN)](https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_networks)
 
+[ResNet10 Algorithm (paper)](https://ieeexplore.ieee.org/document/9724001)
+
 ---
 
 Fonte das imagens: https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset?resource=download
