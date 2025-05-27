@@ -1,5 +1,7 @@
 # Face Detection App (using DNN model)
 
+[Deep Neural Networks (DNN)](https://en.wikipedia.org/wiki/Deep_learning#Deep_neural_networks)
+
 ---
 
 Fonte das imagens: https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset?resource=download
