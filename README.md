@@ -14,7 +14,7 @@ Código adaptado de:
 
 Clonar o projeto
     
-    git clone https://github.com/fahadkalil/face_detection_app
+    git clone https://github.com/fahadkalil/face_detection_app.git
     cd face_detection_app
 
 Criar e ativar o virtualenv para o projeto (no cmd do Windows):
