@@ -6,13 +6,43 @@ from io import BytesIO
 import base64
 import requests
 import os
+import av
+
+from streamlit_webrtc import webrtc_streamer
 
 # Create application title and file uploader widget.
 st.title("Face Detection App")
 img_file_buffer = st.file_uploader("Escolha uma imagem", type=['jpg', 'jpeg', 'png'])
 
+def process_videoframe(frame):  
+    # Convert the frame to an OpenCV image.
+    img = frame.to_ndarray(format="bgr24")
+    
+    # Load the DNN model if not already loaded.
+    if 'net' not in st.session_state:
+        st.session_state.net = load_model()
+    
+    # Detect faces in the image.
+    detections = detectFaceOpenCVDnn(st.session_state.net, img)
+    
+    # Process the detections and draw bounding boxes.
+    img, _ = process_detections(img, detections, conf_threshold=0.5)
+    
+    # Convert the processed image back to a VideoFrame.
+    return av.VideoFrame.from_ndarray(img, format="bgr24")
 
-# Function for detecting faces in an image.
+webrtc_streamer(
+    key="streamer",
+    video_frame_callback=process_videoframe,
+    sendback_audio=False,
+    # media_stream_constraints={
+    #     "video": {
+    #         "width": 1280,
+    #         "height": 720
+    #     }
+    # }
+)
+
 def detectFaceOpenCVDnn(net, frame):
     # Create a blob from the image and apply some pre-processing.
     blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), [104, 117, 123], False, False)
