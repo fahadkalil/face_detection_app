@@ -16,20 +16,27 @@ Código adaptado de:
 
 ## Instalação
 
-Clonar o projeto
+### Clonar o projeto
     
     git clone https://github.com/fahadkalil/face_detection_app.git
     cd face_detection_app
 
-Criar e ativar o virtualenv para o projeto (no cmd do Windows):
-    
-    python -m venv .venv
-    .venv/Scripts/activate.bat
+### Criar e ativar o virtualenv para o projeto
 
-Instalar dependencias:
+- Windows
+    
+      python -m venv .venv
+      .venv/Scripts/activate.bat
+
+- Linux / MacOS
+  
+      python -m venv .venv
+      source .venv/bin/activate
+
+### Instalar dependencias
     
     pip install -r requirements.txt
 
-Para rodar (confira a saída do comando):
+### Para rodar (confira a saída do comando)
 
     streamlit run streamlit_app.py
